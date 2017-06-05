@@ -101,6 +101,7 @@ class Model(ModelDesc):
         value = FullyConnected('fc-v', l, 1, nl=tf.identity)
         return logits, value
 
+    # fix the graph and reinitlize the weights
     def _build_graph(self, inputs):
         state, action, futurereward = inputs
         logits, self.value = self._get_NN_prediction(state)
